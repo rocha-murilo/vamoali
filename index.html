@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#084443">
+<meta name="description" content="VamoAli – Um roteiro criativo. Planeje sua viagem sem complicação.">
+<title>VamoAli – Um roteiro criativo</title>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== Ícones (sprite) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.01"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.3 7-12a7 7 0 0 0-14 0c0 5.7 7 12 7 12Z" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r="2.6" fill="#fff" stroke="none"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="3" fill="currentColor" stroke="none"/><path d="M8 2.5v4M16 2.5v4" stroke-width="2"/><g fill="#fff" stroke="none"><rect x="6.5" y="10" width="3" height="2.6" rx=".6"/><rect x="10.5" y="10" width="3" height="2.6" rx=".6"/><rect x="14.5" y="10" width="3" height="2.6" rx=".6"/><rect x="6.5" y="14.4" width="3" height="2.6" rx=".6"/><rect x="10.5" y="14.4" width="3" height="2.6" rx=".6"/></g></symbol>
+    <symbol id="i-dollar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor" stroke="none"/><path d="M15 8.6c-.5-1-1.6-1.6-3-1.6-1.7 0-2.9.9-2.9 2.2 0 3.1 6 1.6 6 4.7 0 1.3-1.2 2.2-3.1 2.2-1.5 0-2.7-.6-3.2-1.8M12 5.5V7m0 10v1.5" stroke="#fff" stroke-width="1.8"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M15.5 4.8a3.4 3.4 0 0 1 0 6.4M18 14.4c2 .8 3.5 2.7 3.5 5.6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="6.8" stroke-width="1.8"/><path d="M12 1.8v3M12 19.2v3M1.8 12h3M19.2 12h3M4.8 4.8l2 2M17.2 17.2l2 2M4.8 19.2l2-2M17.2 6.8l2-2" stroke-width="2.2"/></symbol>
+    <symbol id="i-bed" viewBox="0 0 24 24"><path d="M2.5 4v16M2.5 16h19M21.5 20v-7a3 3 0 0 0-3-3H10v6" stroke-width="2.2"/><circle cx="6.3" cy="11" r="2.2" fill="currentColor"/></symbol>
+    <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M3 2v7a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6a2 2 0 0 0 2 2h3Zm0 0v7" stroke-width="2.1"/></symbol>
+    <symbol id="i-umbrella" viewBox="0 0 24 24"><path d="M2.5 11.5a9.5 9 0 0 1 19 0Z" fill="currentColor"/><path d="M12 11.5 8.5 20.5" stroke-width="2.2"/><path d="M3 22c3-1.8 5-1.8 8 0s5 1.8 8 0" stroke-width="1.8"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 1 2-2h2l1.5-2h7L17 6h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" fill="currentColor" stroke="none"/><circle cx="12" cy="13" r="3.8" fill="#fff" stroke="none"/><circle cx="12" cy="13" r="2" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.5S3 15 3 8.8A4.8 4.8 0 0 1 12 6.5a4.8 4.8 0 0 1 9 2.3C21 15 12 20.5 12 20.5Z" stroke-width="2"/></symbol>
+    <symbol id="i-heart-fill" viewBox="0 0 24 24"><path d="M12 20.5S3 15 3 8.8A4.8 4.8 0 0 1 12 6.5a4.8 4.8 0 0 1 9 2.3C21 15 12 20.5 12 20.5Z" fill="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11 12 3.5 20.5 11v9a1 1 0 0 1-1 1H15v-6H9v6H4.5a1 1 0 0 1-1-1Z" stroke-width="2"/></symbol>
+    <symbol id="i-home-fill" viewBox="0 0 24 24"><path d="M3.5 11 12 3.5 20.5 11v9a1 1 0 0 1-1 1H15v-6H9v6H4.5a1 1 0 0 1-1-1Z" fill="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20ZM9 4v13.5M15 6.5V20" stroke-width="2"/></symbol>
+    <symbol id="i-map-fill" viewBox="0 0 24 24"><path d="M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20Z" fill="currentColor" stroke-width="2"/><path d="M9 4v13.5M15 6.5V20" stroke="#fff" stroke-width="1.6"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" stroke-width="2"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" stroke-width="2"/></symbol>
+    <symbol id="i-user-fill" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7Z" fill="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" stroke-width="2"/><path d="M12 6.5V12l3.8 2.2" stroke-width="2"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2.5 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.3l-5.9 3.2 1.2-6.5L2.5 9.4l6.6-.9Z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-waves" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="3.5" fill="currentColor" stroke="none"/><path d="M12 1v1.4M5 4l1 1M19 4l-1 1M2.5 8.5H4M20 8.5h1.5" stroke-width="1.8"/><path d="M2 14c2.5-2 4.5-2 7 0s4.5 2 7 0 4-1.700 6-.5M2 19c2.5-2 4.5-2 7 0s4.5 2 7 0 4-1.700 6-.5" stroke-width="2"/></symbol>
+    <symbol id="i-landmark" viewBox="0 0 24 24"><path d="M2.5 9 12 3l9.5 6Z" fill="currentColor"/><path d="M5 11v7M9.5 11v7M14.5 11v7M19 11v7M2.5 20.5h19" stroke-width="2.2"/></symbol>
+    <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 2.5 6 10h3l-4 5.5h4.5L8 19.5h8l-1.5-4H19L15 10h3Z" fill="currentColor"/><path d="M12 19.5v3" stroke-width="2.4"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13" stroke-width="2"/><circle cx="6.5" cy="18" r="3" fill="currentColor"/><circle cx="17.5" cy="16" r="3" fill="currentColor"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" stroke-width="2"/><path d="M2.5 12h19M12 2.5c3 3 4 6 4 9.5s-1 6.500-4 9.500c-3-3-4-6-4-9.500s1-6.500 4-9.500Z" stroke-width="1.8"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M12 2.8a5 5 0 0 0-5 5v2.7c0 .9-.3 1.8-.9 2.5L4.8 14.8A1 1 0 0 0 5.6 16.4h12.8a1 1 0 0 0 .8-1.6l-1.3-1.8a4 4 0 0 1-.9-2.5V7.8a5 5 0 0 0-5-5Z"/><path d="M9.6 19.4a2.5 2.5 0 0 0 4.8 0"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3"/><path d="M15.5 16.5 21 11l-5.5-5.5"/><path d="M21 11H9"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m14.5 3.8 5.7 5.7L9 20.7H3.3V15Z"/><path d="m12.8 5.5 5.7 5.7"/></symbol>
+  </defs>
+</svg>
+
+<main class="app" id="app" data-status="light">
+
+  <!-- Barra de status (aparece só na moldura de desktop) -->
+  <div class="status" aria-hidden="true">
+    <span class="status__time">9:41</span>
+    <span class="status__icons">
+      <svg viewBox="0 0 18 12" width="18" height="12"><path d="M1 9h2.5v3H1zM5.5 6.5H8V12H5.5zM10 3.5h2.5V12H10zM14.5 0H17v12h-2.5z" fill="currentColor" stroke="none"/></svg>
+      <svg viewBox="0 0 17 12" width="17" height="12"><path d="M8.5 2.5c2.3 0 4.4.9 6 2.4l1.2-1.3A10.600 10.600 0 0 0 8.500.7 10.600 10.600 0 0 0 1.300 3.600L2.500 4.900a8.800 8.800 0 0 1 6-2.400Zm0 3.600c1.300 0 2.500.5 3.400 1.300l1.200-1.300a7 7 0 0 0-9.200 0l1.200 1.300c.9-.8 2.100-1.300 3.400-1.300Zm0 3.600c-.6 0-1.100.2-1.500.6l1.500 1.700 1.500-1.700c-.4-.4-.9-.6-1.500-.6Z" fill="currentColor" stroke="none"/></svg>
+      <svg viewBox="0 0 27 13" width="27" height="13"><rect x=".5" y=".5" width="22" height="12" rx="3.500" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="19" height="9" rx="2.200" fill="currentColor" stroke="none"/><path d="M24 4.500v4c.9-.3 1.500-1.100 1.500-2s-.6-1.700-1.500-2Z" fill="currentColor" stroke="none" opacity=".5"/></svg>
+    </span>
+  </div>
+
+  <!-- ============ TELA 1 · INÍCIO ============ -->
+  <section class="screen s-home" id="tela-1" data-nav="inicio" data-status="light" aria-label="Início">
+    <header class="hero">
+      <img class="hero__bg" src="img/hero-home.jpg" alt="" width="780" height="632">
+      <div class="hero__brand">
+        <img class="hero__logo" src="img/logo-branco.png" alt="VamoAli" width="900" height="264">
+        <p class="hero__tag">Um roteiro criativo</p>
+      </div>
+    </header>
+
+    <section class="search" aria-labelledby="search-title">
+      <div class="search__head">
+        <svg class="ico" aria-hidden="true"><use href="#i-search"/></svg>
+        <h2 id="search-title">Para onde você<br>quer viajar?</h2>
+      </div>
+      <input class="field" id="q" type="search" placeholder="Ex.: Rio de Janeiro" aria-label="Destino" autocomplete="off" enterkeyhint="search" aria-describedby="q-msg">
+      <ul class="suggest" id="suggest" role="listbox" aria-label="Sugestões de destino" hidden></ul>
+      <p class="msg" id="q-msg" role="alert" hidden></p>
+      <button class="btn" id="btn-start">Começar meu plano</button>
+    </section>
+
+    <section class="block" aria-labelledby="hot-title">
+      <div class="block__head">
+        <h3 id="hot-title">Destinos em alta</h3>
+        <button class="link" id="btn-all">Ver todos</button>
+      </div>
+      <div class="carousel" id="destinos"></div>
+    </section>
+  </section>
+
+  <!-- ============ TELA 2 · SOBRE SUA VIAGEM ============ -->
+  <section class="screen s-form" id="tela-2" data-nav="inicio" data-status="dark" aria-label="Sobre sua viagem">
+    <div class="pad">
+      <button class="back" data-back aria-label="Voltar"><svg><use href="#i-back"/></svg></button>
+      <h1 class="h-title">Conte pra gente<br>sobre sua viagem</h1>
+      <p class="lead">Vamos montar um roteiro perfeito pra você!</p>
+
+      <div class="rows">
+        <button class="row" data-field="destino">
+          <svg class="row__ico" aria-hidden="true"><use href="#i-pin"/></svg>
+          <span class="row__txt"><b>Para onde?</b><small id="v-destino"></small></span>
+          <svg class="row__go" aria-hidden="true"><use href="#i-next"/></svg>
+        </button>
+        <button class="row" data-field="quando">
+          <svg class="row__ico" aria-hidden="true"><use href="#i-calendar"/></svg>
+          <span class="row__txt"><b>Quando?</b><small id="v-quando"></small></span>
+          <svg class="row__go" aria-hidden="true"><use href="#i-next"/></svg>
+        </button>
+        <button class="row" data-field="orcamento">
+          <svg class="row__ico" aria-hidden="true"><use href="#i-dollar"/></svg>
+          <span class="row__txt"><b>Orçamento?</b><small id="v-orcamento"></small></span>
+          <svg class="row__go" aria-hidden="true"><use href="#i-next"/></svg>
+        </button>
+        <button class="row" data-field="pessoas">
+          <svg class="row__ico" aria-hidden="true"><use href="#i-people"/></svg>
+          <span class="row__txt"><b>Quantas pessoas?</b><small id="v-pessoas"></small></span>
+          <svg class="row__go" aria-hidden="true"><use href="#i-next"/></svg>
+        </button>
+      </div>
+
+      <h3 class="q" id="q-estilo">Qual o estilo da viagem?</h3>
+      <div class="chips" id="chips" role="group" aria-labelledby="q-estilo">
+        <button class="chip" data-estilo="praia" aria-pressed="false"><svg aria-hidden="true"><use href="#i-waves"/></svg>Praia</button>
+        <button class="chip" data-estilo="cultura" aria-pressed="false"><svg aria-hidden="true"><use href="#i-landmark"/></svg>Cultura</button>
+        <button class="chip" data-estilo="gastronomia" aria-pressed="false"><svg aria-hidden="true"><use href="#i-utensils"/></svg>Gastronomia</button>
+        <button class="chip" data-estilo="natureza" aria-pressed="false"><svg aria-hidden="true"><use href="#i-tree"/></svg>Natureza</button>
+        <button class="chip" data-estilo="noturno" aria-pressed="false"><svg aria-hidden="true"><use href="#i-music"/></svg>Noturno</button>
+        <button class="chip" data-estilo="outro" aria-pressed="false"><svg aria-hidden="true"><use href="#i-globe"/></svg>Outro</button>
+      </div>
+
+      <p class="form-msg" id="form-msg" role="alert" hidden></p>
+      <button class="btn btn--end" id="btn-show">Mostrar minha viagem</button>
+    </div>
+  </section>
+
+  <!-- ============ TELA 3 · ROTEIRO DA VIAGEM ============ -->
+  <section class="screen s-days" id="tela-3" data-nav="roteiros" data-status="dark" aria-label="Roteiro da viagem">
+    <div class="pad">
+      <header class="bar">
+        <button class="back" data-back aria-label="Voltar"><svg><use href="#i-back"/></svg></button>
+        <h1>Roteiro da viagem</h1>
+        <button class="icon-btn" id="btn-add" aria-label="Adicionar atividade"><svg aria-hidden="true"><use href="#i-plus"/></svg></button>
+      </header>
+
+      <div class="days" id="days" role="tablist" aria-label="Dias da viagem"></div>
+      <ol class="timeline" id="timeline"></ol>
+
+      <button class="mapcard" id="btn-map-day">
+        <span class="mapcard__pin"><svg aria-hidden="true"><use href="#i-pin"/></svg></span>
+        <span class="mapcard__txt"><b>Ver no mapa</b><small>Veja todos os lugares do dia</small></span>
+      </button>
+      <button class="btn btn--save" id="btn-save">Salvar viagem</button>
+    </div>
+  </section>
+
+  <!-- ============ TELA 4 · DETALHES DA ATIVIDADE ============ -->
+  <section class="screen s-detail" id="tela-4" data-nav="roteiros" data-status="light" aria-label="Detalhes da atividade">
+    <div class="dhero" id="d-hero">
+      <img class="dhero__img" id="d-img" alt="">
+      <img class="dhero__thumb" id="d-thumb" alt="">
+      <button class="circle circle--l" data-back aria-label="Voltar"><svg><use href="#i-back"/></svg></button>
+      <button class="circle circle--r" id="fav" aria-label="Favoritar" aria-pressed="false"><svg><use href="#i-heart"/></svg></button>
+    </div>
+
+    <div class="dsheet">
+      <h1 class="d-title" id="d-title"></h1>
+      <div class="d-meta">
+        <span class="rating"><svg aria-hidden="true"><use href="#i-star"/></svg><b id="d-nota"></b><small id="d-aval"></small></span>
+        <span class="tag" id="d-tag"></span>
+      </div>
+
+      <div class="tabs tabs--spread" id="d-tabs" role="tablist" aria-label="Seções">
+        <button class="tab is-on" role="tab" aria-selected="true" data-tab="sobre">Sobre</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="info">Informações</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="aval">Avaliações</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="fotos">Fotos</button>
+      </div>
+      <div class="panel" id="d-panel" role="tabpanel"></div>
+
+      <button class="btn btn--end" id="btn-d-map">Ver no mapa</button>
+    </div>
+  </section>
+
+  <!-- ============ TELA 5 · MINHAS VIAGENS ============ -->
+  <section class="screen s-trips" id="tela-5" data-nav="roteiros" data-status="dark" aria-label="Minhas viagens">
+    <div class="pad">
+      <h1 class="h-title h-title--xl">Minhas viagens</h1>
+
+      <div class="seg" id="seg" role="tablist" aria-label="Filtro de viagens">
+        <button class="seg__b is-on" role="tab" aria-selected="true" data-tab="andamento"><span>Em andamento</span></button>
+        <button class="seg__b" role="tab" aria-selected="false" data-tab="salvas"><span>Salvas</span></button>
+      </div>
+
+      <div class="trips" id="trips"></div>
+      <button class="btn btn--end" id="btn-trips-map">Ver no mapa</button>
+    </div>
+  </section>
+
+  <!-- ============ TELA 6 · VISÃO GERAL DA VIAGEM ============ -->
+  <section class="screen s-overview" id="tela-6" data-nav="roteiros" data-status="light" aria-label="Visão geral da viagem">
+    <div class="ohero">
+      <img id="o-img" alt="">
+      <button class="circle circle--l" data-back aria-label="Voltar"><svg><use href="#i-back"/></svg></button>
+      <div class="ohero__copy">
+        <p>Sua viagem para</p>
+        <h1 id="o-dest"></h1>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><svg class="stat__ico" aria-hidden="true"><use href="#i-sun"/></svg><b class="stat__big" id="o-temp"></b></div>
+      <div class="stat"><svg class="stat__ico" aria-hidden="true"><use href="#i-calendar"/></svg><span><b class="stat__big" id="o-dias"></b><small id="o-pessoas"></small></span></div>
+      <div class="stat"><svg class="stat__ico stat__ico--sm" aria-hidden="true"><use href="#i-dollar"/></svg><span><b class="stat__big stat__big--sm" id="o-orc"></b><small>Orçamento</small></span></div>
+    </div>
+
+    <div class="osheet">
+      <div class="tabs" id="o-tabs" role="tablist" aria-label="Seções da viagem">
+        <button class="tab is-on" role="tab" aria-selected="true" data-act="resumo">Resumo</button>
+        <button class="tab" role="tab" aria-selected="false" data-act="roteiro">Roteiro</button>
+        <button class="tab" role="tab" aria-selected="false" data-act="mapa">Mapa</button>
+        <button class="tab" role="tab" aria-selected="false" data-act="destaques">Destaques</button>
+      </div>
+
+      <h2 class="sec">Estimativa de gastos</h2>
+      <div class="budget">
+        <div class="donut">
+          <svg viewBox="0 0 120 120" id="o-donut" role="img" aria-label="Gráfico de rosca com a estimativa de gastos"></svg>
+          <div class="donut__c"><b id="o-total"></b><small>total estimado</small></div>
+        </div>
+        <ul class="legend" id="o-legend"></ul>
+      </div>
+
+      <h2 class="sec" id="o-hl-title">Destaques da Viagem</h2>
+      <div class="carousel carousel--flush" id="o-hl"></div>
+    </div>
+  </section>
+
+  <!-- ============ TELA 7 · PERFIL ============ -->
+<section class="screen s-profile" id="tela-7" data-nav="perfil" data-status="light" aria-label="Perfil">
+  <header class="phero">
+    <span class="phero__title">Perfil</span>
+    <div class="phero__avatar">
+      <span class="avatar" id="p-avatar"></span>
+      <button class="avatar__edit" id="p-edit-photo" aria-label="Alterar foto"><svg aria-hidden="true"><use href="#i-edit"/></svg></button>
+    </div>
+    <h1 class="phero__name" id="p-nome"></h1>
+    <p class="phero__role" id="p-bio"></p>
+  </header>
+
+  <div class="pstats">
+    <div class="pstat"><b id="p-viagens"></b><small>Viagens</small></div>
+    <div class="pstat"><b id="p-destinos"></b><small>Destinos</small></div>
+    <div class="pstat"><b id="p-favoritos"></b><small>Favoritos</small></div>
+  </div>
+
+  <nav class="pmenu" aria-label="Opções do perfil">
+    <button class="prow" id="p-dados">
+      <svg class="prow__ico" aria-hidden="true"><use href="#i-user"/></svg>
+      <span class="prow__txt">Meus dados</span>
+      <svg class="prow__go" aria-hidden="true"><use href="#i-next"/></svg>
+    </button>
+    <button class="prow" data-go-tab="andamento">
+      <svg class="prow__ico" aria-hidden="true"><use href="#i-map"/></svg>
+      <span class="prow__txt">Minhas viagens</span>
+      <span class="prow__badge" id="p-badge-viagens"></span>
+      <svg class="prow__go" aria-hidden="true"><use href="#i-next"/></svg>
+    </button>
+    <button class="prow" data-go-tab="salvas">
+      <svg class="prow__ico" aria-hidden="true"><use href="#i-heart"/></svg>
+      <span class="prow__txt">Favoritos</span>
+      <span class="prow__badge" id="p-badge-favoritos"></span>
+      <svg class="prow__go" aria-hidden="true"><use href="#i-next"/></svg>
+    </button>
+    <button class="prow" id="p-notif">
+      <svg class="prow__ico" aria-hidden="true"><use href="#i-bell"/></svg>
+      <span class="prow__txt">Notificações</span>
+      <span class="prow__badge" id="p-badge-notif"></span>
+      <svg class="prow__go" aria-hidden="true"><use href="#i-next"/></svg>
+    </button>
+    <button class="prow" id="p-prefs">
+      <svg class="prow__ico" aria-hidden="true"><use href="#i-globe"/></svg>
+      <span class="prow__txt">Preferências</span>
+      <svg class="prow__go" aria-hidden="true"><use href="#i-next"/></svg>
+    </button>
+    <button class="prow" id="p-help">
+      <svg class="prow__ico" aria-hidden="true"><use href="#i-info"/></svg>
+      <span class="prow__txt">Ajuda e suporte</span>
+      <svg class="prow__go" aria-hidden="true"><use href="#i-next"/></svg>
+    </button>
+    <button class="prow" id="p-about">
+      <svg class="prow__ico" aria-hidden="true"><use href="#i-landmark"/></svg>
+      <span class="prow__txt">Sobre o VamoAli</span>
+      <svg class="prow__go" aria-hidden="true"><use href="#i-next"/></svg>
+    </button>
+  </nav>
+
+  <button class="plogout" id="p-logout">
+    <svg aria-hidden="true"><use href="#i-logout"/></svg>
+    Sair da conta
+  </button>
+</section>
+
+  <!-- ===== Barra de navegação inferior (todas as telas) ===== -->
+  <nav class="nav" id="nav" aria-label="Navegação principal">
+    <button class="nav__i" data-nav="inicio"><svg aria-hidden="true"><use href="#i-home"/></svg><span>Início</span></button>
+    <button class="nav__i" data-nav="roteiros"><svg aria-hidden="true"><use href="#i-map"/></svg><span>Roteiros</span></button>
+    <button class="nav__i" data-nav="salvos"><svg aria-hidden="true"><use href="#i-heart"/></svg><span>Salvos</span></button>
+    <button class="nav__i" data-nav="perfil"><svg aria-hidden="true"><use href="#i-user"/></svg><span>Perfil</span></button>
+  </nav>
+
+  <!-- ===== Bottom sheet (formulários e confirmações) ===== -->
+  <div class="layer" id="layer" hidden>
+    <div class="scrim" data-close></div>
+    <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" tabindex="-1">
+      <div class="sheet__grab" aria-hidden="true"></div>
+      <header class="sheet__head">
+        <h2 id="sheet-title"></h2>
+        <button class="sheet__x" data-close aria-label="Fechar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+      </header>
+      <div class="sheet__body" id="sheet-body"></div>
+      <footer class="sheet__foot" id="sheet-foot"></footer>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
